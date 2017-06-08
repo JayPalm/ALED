@@ -25,7 +25,7 @@ SECRET_KEY = '1^8mty^&7xjur-yan+pu!c=s@d0*e)r$3z&z6vo#_k*f372ha%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.0.1.57',]
 
 
 # Application definition
@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ALED',
-        'USER': 'admin',
+        'USER': 'pi',
         'PASSWORD': 'raspberrylite',
         'HOST': 'localhost',
         'PORT': '',
