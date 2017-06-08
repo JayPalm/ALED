@@ -28,7 +28,7 @@ function randColor (dType="string") {
 	return(report(dType))
 }
 
-function report (dType) {
+function report (dType="string") {
 	var arr = [];
 	$("input.jscolor").each(function(){
 		if (dType.toLowerCase()=="string") {arr.push($(this)[0].jscolor.toString());}
