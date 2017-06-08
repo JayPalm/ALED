@@ -6,12 +6,6 @@ from .models import Strip
 class StripSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Strip
-		fields = ('name','num','LED_COUNT','LED_PIN','LED_BRIGHTNESS','LED_STRIP')
+		fields = ('name','num','LED_COUNT','LED_PIN','LED_BRIGHTNESS','LED_STRIP','color_data')
 
 
-
-"""class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('url', 'username', 'email', 'groups')
-		"""
