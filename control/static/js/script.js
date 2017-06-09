@@ -36,6 +36,21 @@ function report (dType="string") {
 		else if (dType.toLowerCase()=="rgb") {arr.push($(this)[0].jscolor.toRGBString());}
 	}); 
 	return(arr);
+	alert("The array values are"+arr)
+}
+
+function publish (board=report()) {
+	var data = JSON.stringify(board);
+	
+	$.ajax({
+   		type: 'POST',    
+		url:'http://127.0.0.1:8000/strips/',
+		data:'name=jo&'+ 'color_data='+data,
+		success: function(msg){
+    	alert('wow' + msg);
+         }
+     });
+
 }
 
 
