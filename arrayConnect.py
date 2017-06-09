@@ -4,28 +4,41 @@ from neopixel import *
 
 r = requests.get('http://127.0.0.1:8000/strips/')
 
+i=0
+chose = r.json()[i]
 
-
-
-
-
-
-
-
-
-
-
-# LED strip configuration:
-LED_COUNT      = 16      # Number of LED pixels.
-LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
-#LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
+#Static Strip Parameters
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
 LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-LED_BRIGHTNESS = 50     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
-LED_STRIP      = ws.WS2811_STRIP_GRB   # Strip type and colour ordering
 
+#Custom Strip Parameters
+LED_COUNT = chose['LED_COUNT']
+LED_PIN = chose['LED_PIN']
+LED_BRIGHTNESS = chose['LED_BRIGHTNESS']
+LED_STRIP = ws.WS2811_STRIP_GRB				#chose['LED_STRIP']
+
+# Create NeoPixel object with appropriate configuration.
+strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, LED_STRIP)
+	# Intialize the library (must be called once before other functions).
+strip.begin()
+
+color=r.json()[i]['color_data']
+
+for p in range(len(color)):
+	strip.setPixelColor(p,int(color[0],16))
+strip.show()
+
+
+
+
+
+
+
+
+
+# Set Values for LED strip configuration:
 
 
 # Define functions which animate LEDs in various ways.

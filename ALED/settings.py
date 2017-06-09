@@ -25,7 +25,7 @@ SECRET_KEY = '1^8mty^&7xjur-yan+pu!c=s@d0*e)r$3z&z6vo#_k*f372ha%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.1.57','127.0.0.1']
+ALLOWED_HOSTS = ['10.0.1.56','10.0.1.57','127.0.0.1']
 
 
 # Application definition
@@ -36,9 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    
     'django.contrib.staticfiles',
     'rest_framework',
     'control',
+
     
 ]
 
@@ -50,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'ALED.urls'
