@@ -1,4 +1,4 @@
-.DS_Store
+*.DS_Store
 *.sqlite3
 *.pyc
 staticfiles/
@@ -22,3 +22,5 @@ static/build/
 static/local/
 static/rev-manifest.json
 temp/
+/.AppleDouble
+/myvenv
