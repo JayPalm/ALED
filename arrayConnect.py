@@ -2,10 +2,10 @@ import json,requests,time
 
 from neopixel import *
 
-r = requests.get('http://127.0.0.1:8000/strips/')
+r = requests.get('http://10.0.1.56:8000/strips/')
 
-i=0
-chose = r.json()[i]
+
+chose = r.json()[-1]
 
 #Static Strip Parameters
 LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
@@ -24,11 +24,15 @@ strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
 	# Intialize the library (must be called once before other functions).
 strip.begin()
 
-color=r.json()[i]['color_data']
 
-for p in range(len(color)):
-	strip.setPixelColor(p,int(color[0],16))
-strip.show()
+while True:
+
+	r = requests.get('http://10.0.1.56:8000/strips/')
+	color=r.json()[i]['color_data']
+
+	for p in range(len(color)):
+		strip.setPixelColor(p,int(color[p],16))
+	strip.show()
 
 
 
