@@ -15,17 +15,47 @@ function grid (xx,yy) {
 	
 	$("input.jscolor").each(function(){
 		this.jscolor.onFineChange=function(){
-			console.log(this.toHEXString())
+			console.log(this.toHEXString());
+			publish();
 		}
 	});
 
 }
+
+function publish () {
+	var data = JSON.stringify(report());
+	
+	$.ajax({
+   		type: 'POST',    
+		url:'http://127.0.0.1:8000/strips/',
+		data:'name=jo&'+ 'color_data='+data,
+		success: function(msg){
+    	//alert('wow' + msg);
+    	console.log("Success");
+         }
+     });
+
+}
+
+
 function randColor (dType="string") {
 	$("input.jscolor").each(function(){
 		var hEX = ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
 		$(this)[0].jscolor.fromString(hEX);
 	});
-	return(report(dType))
+	return(report(dType));
+	board=report()
+	publish();
+	publish()
+}
+
+function blackOut (dType="string") {
+	$("input.jscolor").each(function(){
+		var hEX = "000000";
+		$(this)[0].jscolor.fromString(hEX);
+	});
+	return(report(dType));
+	publish(report());
 }
 
 function report (dType="string") {
@@ -36,22 +66,10 @@ function report (dType="string") {
 		else if (dType.toLowerCase()=="rgb") {arr.push($(this)[0].jscolor.toRGBString());}
 	}); 
 	return(arr);
-	alert("The array values are"+arr)
-}
-
-function publish (board=report()) {
-	var data = JSON.stringify(board);
 	
-	$.ajax({
-   		type: 'POST',    
-		url:'http://127.0.0.1:8000/strips/',
-		data:'name=jo&'+ 'color_data='+data,
-		success: function(msg){
-    	alert('wow' + msg);
-         }
-     });
-
 }
+
+
 
 
 
@@ -69,16 +87,12 @@ $(function(){
 	});
 
 	//$("input").first()[0].onchange=(randColor());
+	publish();
 
 });
 
 
-jQuery('<input>', {
-    id: 'j',
-    class:'jscolor',
-    value:'#6EFF9E'
-}).appendTo('row');
 
-$('.jscolor').each(function(){
+/*$('.jscolor').each(function(){
     document.getElementById($(this).attr('id')).jscolor.fromString($(this).val());
-}); 
+}); */

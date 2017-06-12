@@ -1,0 +1,15 @@
+alias py='python3'
+alias pi='pip3 install'
+
+
+alias venv='source myvenv/bin/activate'
+alias rs='python3 manage.py runserver'
+alias rs0='python3 manage.py runserver 0.0.0.0:8000'
+alias pm='python3 manage.py'
+
+alias ws='cd rpi_ws281x/python/examples'
+alias color='sudo python3 rpi_ws281x/python/examples/strandtest.py'
+
+
+PYTHONPATH="${PYTHONPATH}:/home/pi/rpi_ws281x/python"
+export PYTHONPATH
