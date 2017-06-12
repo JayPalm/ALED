@@ -2,7 +2,7 @@ import json,requests,time
 
 from neopixel import *
 
-r = requests.get('http://10.0.1.56:8000/strips/')
+r = requests.get('http://10.0.1.57:8000/strips/')
 
 
 chose = r.json()[-1]
