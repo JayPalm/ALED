@@ -24,3 +24,4 @@ static/rev-manifest.json
 temp/
 *.AppleDouble
 /myvenv
+ALED/settings.py
