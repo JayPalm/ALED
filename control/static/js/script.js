@@ -1,6 +1,11 @@
 
 //var xx = process.argv[2];
 //var yy = process.argv[3];
+/*
+*whiteOut button
+*blackOut button
+*xOut Button
+*/
 function grid (xx,yy) {
 
 	for (var i = 0; i <= xx-1; i++) {
@@ -27,7 +32,7 @@ function publish () {
 	
 	$.ajax({
    		type: 'POST',    
-		url:'http://10.0.1.57:8000/strips/',
+		url:'http://10.0.1.56:8000/strips/',
 		data:'name=jo&'+ 'color_data='+data,
 		success: function(msg){
     	//alert('wow' + msg);

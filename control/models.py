@@ -14,8 +14,5 @@ class Strip (models.Model):
 	LED_BRIGHTNESS = models.IntegerField(default=50)
 	LED_STRIP = models.CharField(max_length=200,default="ws.WS2811_STRIP_GRB")
 	color_data = JSONField(null=True,blank=True)
+	created = models.DateTimeField(auto_now_add=True, auto_now=False)
 
-	'''board = ArrayField(
-					ArrayField(
-						models.CharField(max_length=10, blank=True, default="000000"),
-						size=8,),size=8,blank=True,null=True)'''
