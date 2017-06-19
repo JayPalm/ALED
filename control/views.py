@@ -80,6 +80,8 @@ class StripDetail(APIView):
 			return Strip.objects.get(pk=pk)
 		except Strip.DoesNotExist:
 			raise Http404
+	def last(self, pk):
+		return Strip.objects.last()
 
 	def get(self, request, pk, format=None):
 		strip = self.get_object(pk)
