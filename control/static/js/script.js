@@ -32,7 +32,7 @@ function publish () {
 	
 	$.ajax({
    		type: 'POST',    
-		url:'http://10.0.1.56:8000/strips/',
+		url:'http://10.0.1.57:8000/strips/',
 		data:'name=jo&'+ 'color_data='+data,
 		success: function(msg){
     	//alert('wow' + msg);

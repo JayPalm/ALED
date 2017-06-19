@@ -93,7 +93,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ALED',
-        'USER': 'admin',
+        'USER': 'pi',
         'PASSWORD': 'raspberrylite',
         'HOST': 'localhost',
         'PORT': '',
