@@ -27,6 +27,17 @@ function grid (xx,yy) {
 
 }
 
+function report (dType="string") {
+	var arr = [];
+	$("input.jscolor").each(function(){
+		if (dType.toLowerCase()=="string") {arr.push($(this)[0].jscolor.toString());}
+		else if (dType.toLowerCase()=="hex") {arr.push($(this)[0].jscolor.toHEXString());}
+		else if (dType.toLowerCase()=="rgb") {arr.push($(this)[0].jscolor.toRGBString());}
+	}); 
+	return(arr);
+	
+}
+
 function publish () {
 	var data = JSON.stringify(report());
 	
@@ -47,11 +58,11 @@ function randColor (dType="string") {
 	$("input.jscolor").each(function(){
 		var hEX = ("000000" + Math.random().toString(16).slice(2, 8).toUpperCase()).slice(-6);
 		$(this)[0].jscolor.fromString(hEX);
+		//console.log("checkB")
 	});
-	return(report(dType));
-	board=report()
+
+	report();
 	publish();
-	publish()
 }
 
 function blackOut (dType="string") {
@@ -59,20 +70,12 @@ function blackOut (dType="string") {
 		var hEX = "000000";
 		$(this)[0].jscolor.fromString(hEX);
 	});
-	return(report(dType));
-	publish(report());
+	
+	report();
+	publish();
 }
 
-function report (dType="string") {
-	var arr = [];
-	$("input.jscolor").each(function(){
-		if (dType.toLowerCase()=="string") {arr.push($(this)[0].jscolor.toString());}
-		else if (dType.toLowerCase()=="hex") {arr.push($(this)[0].jscolor.toHEXString());}
-		else if (dType.toLowerCase()=="rgb") {arr.push($(this)[0].jscolor.toRGBString());}
-	}); 
-	return(arr);
-	
-}
+
 
 
 

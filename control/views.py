@@ -30,7 +30,7 @@ def home(request):
 
 class StripViewSet(viewsets.ModelViewSet):
 	""" API endpoint that allows users to be viewed or edited."""
-	queryset = Strip.objects.all()
+	queryset = Strip.objects.all().order_by('created')
 	serializer_class = StripSerializer
 
 	filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
@@ -41,7 +41,7 @@ class StripViewSet(viewsets.ModelViewSet):
 		serializer.is_valid(raise_exception=True)
 		self.perform_create(serializer)
 		headers = self.get_success_headers(serializer.data)
-		while Strip.objects.count()>=4:
+		while Strip.objects.count()>4:
 			Strip.objects.first().delete()
 		return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
