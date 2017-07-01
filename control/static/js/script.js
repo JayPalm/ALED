@@ -23,6 +23,7 @@ function grid (xx,yy) {
 			console.log(this.toHEXString());
 			publish();
 		}
+		//$(this).css("text-align","center")
 	});
 
 }
@@ -70,7 +71,7 @@ function blackOut (dType="string") {
 		var hEX = "000000";
 		$(this)[0].jscolor.fromString(hEX);
 	});
-	
+
 	report();
 	publish();
 }

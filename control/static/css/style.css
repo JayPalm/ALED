@@ -1,19 +1,27 @@
 input.jscolor {
 	width: 50px;
 	height: 50px;
+	text-align: center;
 }
 #array {
-	width: 600px;
-	height: 600px;
+	width: 450px;
+	height: 450px;
 	position: relative;
 	top:.5in;
 	left:50%;
 	transform: translate(-50%,0%);
 	border: solid 2px black;
+	padding: 25px;
 
-	
 
 }
+#github {
+	position: relative;
+	top: 50px;
+
+}
+
+
 body {
 	text-align: center;
 }
